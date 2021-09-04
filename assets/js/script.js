@@ -25,9 +25,36 @@ var questions = [
         option2: "q3 o2",
         option3: "q3 o3",
         option4: "q3 o4",
-        correctAnswer: "q1 o2"
+        correctAnswer: "q3 o2"
 
-    }
+    },
+    { //index 3
+        question: "question 4",
+            option1: "q4 o1",
+            option2: "q4 o2",
+            option3: "q4 o3",
+            option4: "q4 o4",
+            correctAnswer: "q4 o2"
+    
+        },
+    { //index 4
+    question: "question 5",
+        option1: "q5 o1",
+        option2: "q5 o2",
+        option3: "q5 o3",
+        option4: "q5 o4",
+        correctAnswer: "q5 o2"
+
+    },
+    { //index 5
+        question: "question 6",
+            option1: "q6 o1",
+            option2: "q6 o2",
+            option3: "q6 o3",
+            option4: "q6 o4",
+            correctAnswer: "q6 o2"
+    
+        },        
 ]
 //index starts at 0 
 var questionNumber = 0; 
@@ -35,18 +62,20 @@ var time = 75;
 
 //put this inside the setInterval
 //time--
-// document.getElementById("timer").innerText = time
+document.getElementById("timer").innerText = time
 
+document.getElementById("start").addEventListener("click", function() {
+    nextQuestion();
+})
 
-
-nextQuestion(); //depends on that variable existing 
+ //depends on that variable existing 
 
 //put quotes unless you're passing a variable or a function
 
 //4 seperate event listeners (will only execute questionNumber++ once)
 document.getElementById("option1").addEventListener("click", function(){
+    
 
-    //MORE LOGIC HERE
     questionNumber++
     nextQuestion();
 })
@@ -81,6 +110,7 @@ function nextQuestion () {
 
 }
 
+
 //setInterval for timer
 // change the timer in the HTML (getElementById("timer").innerHTML = )
 
@@ -90,12 +120,9 @@ function nextQuestion () {
 
 
 //save multiple initials, name initial object to an array 
-
+// if (questionNumber === 5) {
+//     prompt("Please enter your initials");
 
 //local storage, get user input for initials after quiz is over 
 //make sure to call clear interval when the test is over 
 //if have 4 questions, when questionNumber = 4, then clear interVal (when it hits the max number of questions)
-
-
-
-//on topic, close enough
