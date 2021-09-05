@@ -18,6 +18,10 @@ THEN the game is over
 *WHEN the game is over
 THEN I can save my initials and score
 
+# Link to deployed application
+
+https://angelaloftus.github.io/code-quiz/
+
 # Screenshot of Application
 
-![Screenshot]() 
+![Screenshot](https://github.com/AngelaLoftus/code-quiz/blob/main/assets/images/code-quiz-screenshot.jpg) 
