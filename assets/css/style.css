@@ -10,4 +10,9 @@ p {
     color: purple;
     font-size: x-large;
     text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.hidden {
+    display: none;
 }
