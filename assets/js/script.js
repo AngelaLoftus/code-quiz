@@ -161,8 +161,9 @@ function endQuiz() {
     console.log("quizOver");
     questionDivEl.setAttribute("class", "hidden");
     alert("Your score was " + timeLeft);
-    let initials = prompt("enter Your initials");
-    timerEl.innerText= "Hey, " + initials + " your final score is: " + timeLeft;
+    let initials = prompt("Enter Your initials.");
+
+    timerEl.innerText= "Hey, " + initials + " your final score is: " + timeLeft + ". Please click the button to view high scores";
 
     let scores = JSON.parse(window.localStorage.getItem("scores"))|| [];
     let thisScore = { 

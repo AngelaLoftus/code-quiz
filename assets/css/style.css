@@ -16,3 +16,13 @@ p {
 .hidden {
     display: none;
 }
+
+h1 {
+    text-align: center;
+}
+
+.option {
+    align-items: center;
+    font-size:  x-large;
+}
+
