@@ -163,7 +163,7 @@ function endQuiz() {
     alert("Your score was " + timeLeft);
     let initials = prompt("Enter Your initials.");
 
-    timerEl.innerText= "Hey, " + initials + " your final score is: " + timeLeft + ". Please click the button to view high scores";
+    timerEl.innerHTML= "Hey, " + initials + ", your final score is: " + timeLeft +  ".<br><a href = './scores.html'> Click here to view high scores</a>";
 
     let scores = JSON.parse(window.localStorage.getItem("scores"))|| [];
     let thisScore = { 
