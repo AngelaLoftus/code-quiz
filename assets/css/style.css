@@ -54,12 +54,16 @@ h1 {
 }
 
 ul li {
-    background-color:rgb(161, 190, 214);
-    border:  3px, purple;
-    margin: 3px;
+    background-color:rgb(138, 54, 100);
+    color: white;
+    border: solid 5px rgb(179, 124, 179);
+    margin: 5px;
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
     padding: 3px;
     align-items: center;
-    margin: 0 auto;
+    
 }
 
 #questiondiv {
@@ -67,3 +71,10 @@ ul li {
     align-content: center;
 }
 
+.scoreTitle {
+    background-color:rgb(138, 54, 100);
+    color: white;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
