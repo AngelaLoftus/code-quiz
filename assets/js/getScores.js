@@ -1,6 +1,25 @@
-//retrieve from local storage "scores"
+//retrieve scores from local storage and
 //sort array from highest to lowest
-//newEl , list
+let scores = JSON.parse(localStorage.getItem("scores"))  || [];
+scores.sort(function (a1,b1) {
+    return b1.score - a1.score
+});
 
-//append li 
-//show top ten scores
+//for each item in the scores array, display initials and score
+//append list item to unordered list 
+scores.forEach(function (score) {
+    let liEl = document.createElement("li");
+    liEl.textContent = score.initials + " - " + score.score;
+    let ulEl = document.getElementById("scoresList");
+    ulEl.appendChild(liEl);
+})
+
+//function to erase all scores from local storage
+function clearScores() {
+    localStorage.removeItem("scores");
+    window.location.reload();
+}
+
+//event listener for clear scores button
+let clearEl = document.getElementById("clearScores");
+clearEl.onclick = clearScores;

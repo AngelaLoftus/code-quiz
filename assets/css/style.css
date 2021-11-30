@@ -1,10 +1,22 @@
+body {
+    background-color: rgb(240, 224, 240);
+}
+
 button {
     color: #ffffff;
     background: purple;
     text-align: center;
     font-size: large;
+    align-items: center;
 }
 
+#buttondiv{
+    text-align: center;
+}
+
+#buttonsdiv{
+    text-align:center;
+}
 
 p {
     color: purple;
@@ -22,7 +34,36 @@ h1 {
 }
 
 .option {
-    align-items: center;
+    display: block;
     font-size:  x-large;
+    color: white;
+    background-color: rgb(167, 69, 162);
+    padding: 10px;
+    margin: 10px;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+}
+
+#scoresList {
+    list-style: none;
+    text-align: center;
+    font-size: large;
+    
+}
+
+ul li {
+    background-color:rgb(161, 190, 214);
+    border:  3px, purple;
+    margin: 3px;
+    padding: 3px;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#questiondiv {
+    margin: 0 auto;
+    align-content: center;
 }
 

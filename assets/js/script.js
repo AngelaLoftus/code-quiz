@@ -67,71 +67,53 @@ var questions = [
     
         },        
 ]
-//index starts at 0 
-
-//put this inside the setInterval
-//time--
 
 
+//function to start the timer and begin the quiz
 function startTimer() {
     
         quizTimer = setInterval(function() {
-            if (timeLeft === 0) {
-                clearInterval(quizTimer);
-                document.getElementById("timer").innerText = "Sorry, you have run out of time.";
-                alert("You ran out of time! Score = 0.");
-                localStorage.setItem("score", 0);
-                console.log("Score = 0");
+            //end the quiz if there is no time left
+            if (timeLeft <= 0) {
+                endQuiz();
             }
+            //if there is time left, count down the timer and display the countdown
+            else {
             timeLeft--;
-            timerEl.innerText = timeLeft + " seconds left.";
+            timerEl.innerText = timeLeft + " seconds left."; }
         }, 1000);
 }
 
-
+//event listener for click on start button and display the questions
 document.getElementById("start").addEventListener("click", function() {
-    document.getElementById("start").setAttribute("class", "hidden");
-    document.getElementById("questiondiv").removeAttribute("class", "hidden");
-    // if (questionNumber === 4) {
-    //     console.log("game over");
-    //     alert("game over");
-    // }  else {
-    //     nextQuestion();
-    //     }
+document.getElementById("start").setAttribute("class", "hidden");
+document.getElementById("questiondiv").removeAttribute("class", "hidden");
+//calls the start of the quiz
     startTimer();
     nextQuestion();
 })
 
 
- //depends on that variable existing 
-
-//put quotes unless you're passing a variable or a function
 
 //4 seperate event listeners (will only execute questionNumber++ once)
+//on click, execute the choice handler function
 document.getElementById("option1").addEventListener("click", choiceHandler);
-
-
-
-
 document.getElementById("option2").addEventListener("click", choiceHandler);
-
-
-
 document.getElementById("option3").addEventListener("click", choiceHandler);
-
-
 document.getElementById("option4").addEventListener("click", choiceHandler);
 
-
+//function to handle the correct answer and deduct time if incorrect
 function choiceHandler () { 
     if (this.value !== questions[questionNumber].correctAnswer) {
         timeLeft -= 5;
+        
     } 
     if (timeLeft <=0) {
         timeLeft = 0;
     }
     timerEl.innerText = timeLeft + " Seconds Left";
     questionNumber ++;
+    //if reach the end of quiz, call end quiz, else call next question
     if (questionNumber === questions.length) { 
         endQuiz();
     } else {
@@ -155,6 +137,8 @@ function nextQuestion () {
 
 }
 
+//function to close out the quiz
+//and show user the high scores with option to start over or clear scores
 function endQuiz() {
     
     clearInterval(quizTimer);
@@ -163,56 +147,17 @@ function endQuiz() {
     alert("Your score was " + timeLeft);
     let initials = prompt("Enter Your initials.");
 
-    timerEl.innerHTML= "Hey, " + initials + ", your final score is: " + timeLeft +  ".<br><a href = './scores.html'> Click here to view high scores</a>";
+    timerEl.innerHTML= "Hey, " + initials + ", your final score is: " + timeLeft +  ".<br> <a href = './scores.html'> Click here to view high scores</a>";
 
+    //save this score and push to the array
     let scores = JSON.parse(window.localStorage.getItem("scores"))|| [];
     let thisScore = { 
         initials: initials,
         score: timeLeft
     }
-
     scores.push(thisScore);
     window.localStorage.setItem("scores", JSON.stringify(scores));
-    
-    //triggers the link to scores.html
-    //
 };
 
-//CLICK TO SEE HIGH SCORES
-function seeHighScores (){
-window.location.href = "scores.html";
-};
-
-//ask user for name and save to local storage
-
-// if (questionNumber===5) {
-// var userName = prompt("What are your initials?");
-
-// localStorage.setItem("name", userName); };
 
 
-// var userScore = timeLeft;
-
-
-// if (timeLeft >=0) {
-//     var userScore = timeLeft;
-// }
-// else { (userScore = 0) }
-
-// localStorage.setItem("score", userScore);
-
-//setInterval for timer
-// change the timer in the HTML (getElementById("timer").innerHTML = )
-
-//check answer function
-//it decrements by 5 if they're wrong 
-//if else conditional statement if they're right, do blah, if they're wrong, take off time
-
-
-//save multiple initials, name initial object to an array 
-// if (questionNumber === 5) {
-//     prompt("Please enter your initials");
-
-//local storage, get user input for initials after quiz is over 
-//make sure to call clear interval when the test is over 
-//if have 4 questions, when questionNumber = 4, then clear interVal (when it hits the max number of questions)
