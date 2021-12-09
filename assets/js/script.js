@@ -17,7 +17,6 @@ var questions = [
         option2: "localStorage.getItem()",
         option3: "localStorage.saveItem()",
         option4: "localStorage.storeItem()",
-
         correctAnswer: "localStorage.setItem()"
     },
     { 
@@ -36,7 +35,7 @@ var questions = [
         option2: "alertBox('Hello World')",
         option3: "msg('Hello World')",
         option4: "alert('Hello World')",
-        correctAnswer: "alert(Hello World')"
+        correctAnswer: "alert('Hello World')"
 
     },
     { //index 3
@@ -51,10 +50,10 @@ var questions = [
     { //index 4
     question: "Which of the following if statements is written correctly?",
         option1: " if i = 5",
-        option2: "if (i === 5)",
+        option2: "if (i===5)",
         option3: "if i === 5",
         option4: "if i = (5)",
-        correctAnswer: "if (i === 5)"
+        correctAnswer: "if (i===5)"
 
     },
     { //index 5
@@ -105,9 +104,16 @@ document.getElementById("option4").addEventListener("click", choiceHandler);
 //function to handle the correct answer and deduct time if incorrect
 function choiceHandler () { 
     if (this.value !== questions[questionNumber].correctAnswer) {
+        console.log('correct answer', questions[questionNumber].correctAnswer);
+        console.log('this.value', this.value);
         timeLeft -= 5;
+        console.log('wrong');
+        alert('wrong!');
         
     } 
+    else if((this.value === questions[questionNumber].correctAnswer)) { 
+        console.log(questions[questionNumber].correctAnswer);
+        console.log('correct');   alert('correct!');}
     if (timeLeft <=0) {
         timeLeft = 0;
     }
@@ -129,11 +135,11 @@ function nextQuestion () {
     document.getElementById("option1").innerHTML = questions[questionNumber].option1
     document.getElementById("option1").setAttribute("value",questions[questionNumber].option1)
     document.getElementById("option2").innerHTML = questions[questionNumber].option2
-    document.getElementById("option2").setAttribute("value",questions[questionNumber].option1)
+    document.getElementById("option2").setAttribute("value",questions[questionNumber].option2)
     document.getElementById("option3").innerHTML = questions[questionNumber].option3
-    document.getElementById("option3").setAttribute("value",questions[questionNumber].option1)
+    document.getElementById("option3").setAttribute("value",questions[questionNumber].option3)
     document.getElementById("option4").innerHTML = questions[questionNumber].option4
-    document.getElementById("option4").setAttribute("value",questions[questionNumber].option1)
+    document.getElementById("option4").setAttribute("value",questions[questionNumber].option4)
 
 }
 
